@@ -12,7 +12,7 @@ sub define_bdx_materials
 	
 	# Iron
 	my %mat = init_mat();
-	$mat{"name"}          = "bdx_iron";
+	$mat{"name"}          = "BDX_Iron";
 	$mat{"description"}   = "beam dump iron blocks";
 	$mat{"density"}       = "7.874";
 	$mat{"ncomponents"}   = "1";
@@ -51,13 +51,23 @@ sub define_bdx_materials
 	$mat{"components"}    = "G4_H 0.041958 G4_C 0.625017 G4_O 0.333025";
 	print_mat(\%configuration, \%mat);
     
-    # Concrete
+    # BDX_Concrete
     %mat = init_mat();
-    $mat{"name"}          = "Concrete";
+    $mat{"name"}          = "BDX_Concrete";
     $mat{"description"}   = "Concrete";
     $mat{"density"}       = "2.7";
     $mat{"ncomponents"}   = "10";
     $mat{"components"}    = "G4_H 0.01 G4_C 0.001 G4_O 0.529107 G4_Na 0.016 G4_Mg 0.002 G4_Al 0.033872 G4_Si 0.337021 G4_K 0.013 G4_Ca 0.044 G4_Fe 0.014";
+    print_mat(\%configuration, \%mat);
+    
+
+    # BDX_Dirt from A.s. Hoover et Al IEEE Symposium 2009
+    %mat = init_mat();
+    $mat{"name"}          = "BDX_Dirt";
+    $mat{"description"}   = "Dirt";
+    $mat{"density"}       = "1.7";
+    $mat{"ncomponents"}   = "8";
+    $mat{"components"}    = "G4_H 0.021 G4_C 0.016 G4_O 0.577 G4_Al 0.05 G4_Si 0.271 G4_K 0.013 G4_Ca 0.041 G4_Fe 0.011";
     print_mat(\%configuration, \%mat);
     
     
@@ -83,6 +93,16 @@ sub define_bdx_materials
    
     
     
+    # Borotron 5% B
+    %mat = init_mat();
+    $mat{"name"}          = "Borotron";
+    $mat{"description"}   = "Polyethylene + 5% B (weigth)";
+    $mat{"density"}       = "0.94";
+    $mat{"ncomponents"}   = "3";
+    $mat{"components"}    = "G4_C 0.814 G4_H 0.136 G4_B 0.05";
+    print_mat(\%configuration, \%mat);
+    
+   
 	
 }
 

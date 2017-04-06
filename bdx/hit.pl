@@ -15,7 +15,7 @@ sub define_cormo_hit
 	$hit{"identifiers"}     = "sector layer paddle";
 	$hit{"signalThreshold"} = "200.0*KeV";
 	$hit{"timeWindow"}      = "4*ns";
-	$hit{"prodThreshold"}   = "2*um";
+	$hit{"prodThreshold"}   = "100*um";
 	$hit{"maxStep"}         = "1*mm";
 	$hit{"delay"}           = "10*ns";
 	$hit{"riseTime"}        = "1*ns";
@@ -29,8 +29,8 @@ sub define_cormo_hit
 	$hit{"description"}     = "BDX cormorino veto";
 	$hit{"identifiers"}     = "sector veto channel";
 	$hit{"signalThreshold"} = "200.0*KeV";
-	$hit{"timeWindow"}      = "4*ns";
-	$hit{"prodThreshold"}   = "2*um";
+	$hit{"timeWindow"}      = "1000*ns";
+	$hit{"prodThreshold"}   = "100*um";
 	$hit{"maxStep"}         = "500*um";
 	$hit{"delay"}           = "10*ns";
 	$hit{"riseTime"}        = "1*ns";
@@ -44,8 +44,8 @@ sub define_cormo_hit
     $hit{"description"}     = "BDX crystals";
     $hit{"identifiers"}     = "sector layer paddle";
     $hit{"signalThreshold"} = "200.0*KeV";
-    $hit{"timeWindow"}      = "4*ns";
-    $hit{"prodThreshold"}   = "2*um";
+    $hit{"timeWindow"}      = "1000*ns";
+    $hit{"prodThreshold"}   = "100*um";
     $hit{"maxStep"}         = "1*mm";
     $hit{"delay"}           = "10*ns";
     $hit{"riseTime"}        = "1*ns";
