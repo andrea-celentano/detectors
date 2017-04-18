@@ -1697,10 +1697,10 @@ sub make_hallaBD_org
 
 }
 
-my $beamdump_zdelta = 320;
-my $beamdump_zmin   = 0.;
-my $beamdump_zmax   = $beamdump_zmin + $beamdump_zdelta;
-my $beamdump_radius = 54.5;
+$beamdump_zdelta = 320;
+$beamdump_zmin   = 0.;
+$beamdump_zmax   = $beamdump_zmin + $beamdump_zdelta;
+$beamdump_radius = 54.5;
 
 my $water_at_the_end=29;
 my $Al_at_the_end=76.2;
@@ -1708,7 +1708,7 @@ my $Al_at_the_end=76.2;
 my $beamdump_start;
 #my $beamdump_z = -($Bunker_dz+$beamdump_zdelta/2.)+2*$Bunker_dz-$beamdump_zdelta+145-91;
 
-my $beamdump_z = -229.5;
+$beamdump_z = -229.5;
 
 
 sub make_hallaBD
@@ -1751,7 +1751,9 @@ sub make_hallaBD
     
     $par2=2.28;
     $par3=0.1;
-    my %detector = init_det();
+   
+
+    %detector = init_det();
     $detector{"name"}        = "mutest_flux_bdvessel";
     $detector{"mother"}      = "Bunker_tunnel";
     $detector{"description"} = "Mu Test flux detector to sample the muon flux just out of the bd vessel";
@@ -1762,10 +1764,10 @@ sub make_hallaBD
     $detector{"pos"}         = "$X*cm $Y*cm $Z*cm";
     $detector{"rotation"}    = "0*deg 0*deg 0*deg";
     $detector{"dimensions"}  = "$par1*cm $par2*inch $par3*cm $par4*deg $par5*deg";
-    $detector{"sensitivity"} = "flux";
-    $detector{"hit_type"}    = "flux";
+    #$detector{"sensitivity"} = "flux";
+    #$detector{"hit_type"}    = "flux";
     $detector{"material"}    = "G4_WATER";
-    $detector{"identifiers"} = "id manual 4000";
+    #$detector{"identifiers"} = "id manual 4000";
     print_det(\%configuration, \%detector);
     
     
@@ -1776,7 +1778,7 @@ sub make_hallaBD
     
     
     
-    my %detector = init_det();
+    %detector = init_det();
     
     $par3=$beamdump_zdelta/2.;
     $Z=$par3;
@@ -1797,7 +1799,7 @@ sub make_hallaBD
     $Y = 0. ;
     $Z = ($beamdump_zdelta/2.-$water_at_the_end-$Al_at_the_end)+$Al_at_the_end/2;
     
-    my %detector = init_det();
+    %detector = init_det();
     $par1 = 0.;
     $par2 = 25.1;
     $par3 = $Al_at_the_end/2.;
@@ -1824,7 +1826,7 @@ sub make_hallaBD
     #first 3 plates are .5inch
     my $thick=0.5;
     for ($iz=0;$iz<3;$iz++){
-        my %detector = init_det();
+        %detector = init_det();
         $par3=$thick/2;
         $detector{"name"}        = "hallaBD-Al-plates_$plateID";$plateID++;
         $detector{"mother"}      = "hallaBD";
@@ -1845,7 +1847,7 @@ sub make_hallaBD
     $thisZ=$thisZ+(-0.5*2+0.5/2+0.375+0.375/2)*2.54;
     $thick=0.375;
     for ($iz=0;$iz<3;$iz++){
-        my %detector = init_det();
+        %detector = init_det();
         $par3=$thick/2;
         $detector{"name"}        = "hallaBD-Al-plates_$plateID";$plateID++;
         $detector{"mother"}      = "hallaBD";
@@ -1866,7 +1868,7 @@ sub make_hallaBD
     $thisZ=$thisZ+(-.375*2+.375/2+.25+.25/2)*2.54;
     $thick=0.25;
     for ($iz=0;$iz<8;$iz++){
-        my %detector = init_det();
+        %detector = init_det();
         $par3=$thick/2;
         $detector{"name"}        = "hallaBD-Al-plates_$plateID";$plateID++;
         $detector{"mother"}      = "hallaBD";
@@ -1887,7 +1889,7 @@ sub make_hallaBD
     $thisZ=$thisZ+(-.25*2+.25/2+.188+.188/2)*2.54;
     $thick=0.188;
     for ($iz=0;$iz<50;$iz++){
-        my %detector = init_det();
+        %detector = init_det();
         $par3=$thick/2;
         $detector{"name"}        = "hallaBD-Al-plates_$plateID";$plateID++;
         $detector{"mother"}      = "hallaBD";
@@ -1908,7 +1910,7 @@ sub make_hallaBD
     $thisZ=$thisZ+(-.188*2+.188/2+.25+.25/2)*2.54;
     $thick=0.25;
     for ($iz=0;$iz<16;$iz++){
-        my %detector = init_det();
+        %detector = init_det();
         $par3=$thick/2;
         $detector{"name"}        = "hallaBD-Al-plates_$plateID";$plateID++;
         $detector{"mother"}      = "hallaBD";
@@ -1930,7 +1932,7 @@ sub make_hallaBD
     $thisZ=$thisZ+(-.25*2+.25/2+.375+.375/2)*2.54;
     $thick=0.375;
     for ($iz=0;$iz<9;$iz++){
-        my %detector = init_det();
+        %detector = init_det();
         $par3=$thick/2;
         $detector{"name"}        = "hallaBD-Al-plates_$plateID";$plateID++;
         $detector{"mother"}      = "hallaBD";
@@ -1951,7 +1953,7 @@ sub make_hallaBD
     $thisZ=$thisZ+(-.375*2+.375/2+.5+.5/2)*2.54;
     $thick=0.5;
     for ($iz=0;$iz<12;$iz++){
-        my %detector = init_det();
+        %detector = init_det();
         $par3=$thick/2;
         $detector{"name"}        = "hallaBD-Al-plates_$plateID";$plateID++;
         $detector{"mother"}      = "hallaBD";
@@ -1972,7 +1974,7 @@ sub make_hallaBD
     $thisZ=$thisZ+(-0.5*2+0.5/2+0.5+0.75/2)*2.54;
     $thick=0.75;
     for ($iz=0;$iz<12;$iz++){
-        my %detector = init_det();
+        %detector = init_det();
         $par3=$thick/2;
         $detector{"name"}        = "hallaBD-Al-plates_$plateID";$plateID++;
         $detector{"mother"}      = "hallaBD";
@@ -1993,7 +1995,7 @@ sub make_hallaBD
     $thisZ=$thisZ+(-.75/2+1/2)*2.54;
     $thick=1.;
     for ($iz=0;$iz<6;$iz++){
-        my %detector = init_det();
+        %detector = init_det();
         $par3=$thick/2;
         $detector{"name"}        = "hallaBD-Al-plates_$plateID";$plateID++;
         $detector{"mother"}      = "hallaBD";
@@ -3152,17 +3154,20 @@ sub make_sarc_lead
     $detector{"style"}       = 0;
     $detector{"visible"}     = 0;
     $detector{"type"}        = "Box";
-    my $sarc_leadshield_lx=$sarc_dx;
-    my $sarc_leadshield_ly=$sarc_dy;
-    my $sarc_leadshield_lz=$sarc_dz;
+    
+    $sarc_leadshield_lx=$sarc_dx;
+    $sarc_leadshield_ly=$sarc_dy;
+    $sarc_leadshield_lz=$sarc_dz;
+    
     $detector{"pos"}         = "$sarc_x*cm $sarc_y*cm $sarc_z*cm";
     $detector{"rotation"}    = "0*deg 0*deg 0*deg";
     $detector{"dimensions"}  = "$sarc_leadshield_lx*cm $sarc_leadshield_ly*cm $sarc_leadshield_lz*cm";
     $detector{"material"}    = "Component";
     print_det(\%configuration, \%detector);
-    my $sarc_x=0.;
-    my $sarc_y=-3.8;
-    my $sarc_z=3.;
+    
+    $sarc_x=0.;
+    $sarc_y=-3.8;
+    $sarc_z=3.;
 
     $detector{"name"}        = "sarc_lead";
     $detector{"description"} = "sarc lead shield";
@@ -3231,12 +3236,13 @@ sub make_cormo_oveto
     $detector{"style"}       = 0;
     $detector{"visible"}     = 1;
     $detector{"type"}        = "Box";
-    my $cormo_oveto_lx = 58./2;
-    my $cormo_oveto_ly =2.5/2 ;
-    my $cormo_oveto_lz =181./2 ;# MB May16 should be 80
-    my $X = $shX + 0;
-    my $Y = $shY -((35.1+1.0+5.0+1.0)/2+0.2)+50.0+1.3+5./2.+$cormo_oveto_ly;
-    my $Z = $shZ -(105.8-120)/2.-80./2.+40.;
+    
+    $cormo_oveto_lx = 58./2;
+    $cormo_oveto_ly =2.5/2 ;
+    $cormo_oveto_lz =181./2 ;# MB May16 should be 80
+    $X = $shX + 0;
+    $Y = $shY -((35.1+1.0+5.0+1.0)/2+0.2)+50.0+1.3+5./2.+$cormo_oveto_ly;
+    $Z = $shZ -(105.8-120)/2.-80./2.+40.;
     $detector{"pos"}         = "$X*cm $Y*cm $Z*cm";
     $detector{"rotation"}    = "0*deg 0*deg 0*deg";
     $detector{"dimensions"}  = "$cormo_oveto_lx*cm $cormo_oveto_ly*cm $cormo_oveto_lz*cm";
@@ -3250,9 +3256,11 @@ sub make_cormo_oveto
     $detector{"name"}        = "cormo_oveto_bottom_upstream";
     $detector{"color"}       = "ff8000";
     $detector{"description"} = "outer veto bottom upstream";
-    my $cormo_oveto_lx = 40./2;
-    my $cormo_oveto_ly =2.0/2 ;
-    my $cormo_oveto_lz =80./2 ;# MB May16 should be 80
+   
+    $cormo_oveto_lx = 40./2;
+    $cormo_oveto_ly =2.0/2 ;
+    $cormo_oveto_lz =80./2 ;# MB May16 should be 80
+    
     $X = $shX + 0;
     $Y = $shY -((35.1+1.0+5.0+1.0)/2+0.2)-5/2-7-$cormo_oveto_ly-3.5;#RUN1=-0; RUN2=-3.5
     $Z = $shZ -(105.8-120)/2.-80./2.;
@@ -3426,7 +3434,7 @@ sub make_flux_cosmic_cyl
 {
     my %detector = init_det();
     my $cosmicradius=110.1;
-    my $cosmicradius=20.1;#mutest
+    $cosmicradius=20.1;#mutest
     if (($configuration{"variation"}) eq ("CT") ||($flag_mutest eq 1))
     {$detector{"mother"}      = "bdx_main_volume";}
     else
@@ -3555,7 +3563,8 @@ sub make_flux_cosmic_rec
     $detector{"hit_type"}    = "flux";
     $detector{"identifiers"} = "id manual 2001";
     print_det(\%configuration, \%detector);
-    my $Y = $shY +  -$cosmicradius;
+    
+    $Y = $shY +  -$cosmicradius;
     $detector{"name"}        = "flux_cosmic_rec_bottom";
     $detector{"description"} = "lead shield";
     $detector{"color"}       = "cc00ff";
@@ -3598,21 +3607,21 @@ my $cr_alv=0.2/2;
 ######
 # G.Ottonello measurement
 #  short side X
-my $cr_ssx=4.7/2 ;
+$cr_ssx=4.7/2 ;
 # short side Y
-my $cr_ssy=4.8/2 ;
+$cr_ssy=4.8/2 ;
 # long side X
-my $cr_lsx=5.8/2 ;
+$cr_lsx=5.8/2 ;
 #  long side Y
-my $cr_lsy=6.0/2 ;
+$cr_lsy=6.0/2 ;
 #  lenght side Y
-my $cr_lgt=31.6/2.;
+$cr_lgt=31.6/2.;
 # Mylar wrapping thikness
-my $cr_mylar=0.005/2;
+$cr_mylar=0.005/2;
 # Wrapping thikness
-my $cr_airgap=0.1/2;
+$cr_airgap=0.1/2;
 # Alveolus thikness (0.03cm if Cfiber, 0.2 cm if Al)
-my $cr_alv=0.2/2;
+$cr_alv=0.2/2;
 
 # Wrapped crystals
 my $wr_cr_ssx=$cr_ssx+$cr_mylar;
@@ -3632,13 +3641,16 @@ my $al_ar_wr_cr_ssy=$ar_wr_cr_ssy+$cr_alv;
 my $al_ar_wr_cr_lsx=$ar_wr_cr_lsx+$cr_alv;
 my $al_ar_wr_cr_lsy=$ar_wr_cr_lsy+$cr_alv;
 my $al_ar_wr_cr_lgt=$ar_wr_cr_lgt+$cr_alv;
-# fixed Al alveoles
-my $al_ar_wr_cr_ssx=8.2;
-my $al_ar_wr_cr_ssy=8./2;
-my $al_ar_wr_cr_lsx=8./2.;
-my $al_ar_wr_cr_lsy=8./2.;
-my $al_ar_wr_cr_lgt=(29.5+5+5)/2.;
 
+if (($configuration{"variation"}) eq ("CT"))
+{
+# fixed Al alveoles
+$al_ar_wr_cr_ssx=8.2;
+$al_ar_wr_cr_ssy=8./2;
+$al_ar_wr_cr_lsx=8./2.;
+$al_ar_wr_cr_lsy=8./2.;
+$al_ar_wr_cr_lgt=(29.5+5+5)/2.;
+}
 
 #distance betweens modules (arbitraty fixed at XXcm)
 my $blocks_distance=$cr_lgt*2.+5.;
@@ -3822,10 +3834,10 @@ print "#########################################","\n";
         $detector{"rotation"}    = "0*deg 0*deg 0*deg";
         $detector{"dimensions"}  = "$det_flux_lx*cm $det_flux_ly*cm $det_flux_lz*cm";
         $detector{"material"}    = "G4_AIR";
-        $detector{"sensitivity"} = "flux";
-        $detector{"hit_type"}    = "flux";
+        #$detector{"sensitivity"} = "flux";
+        #$detector{"hit_type"}    = "flux";
         my $nflux=301+$iz;
-        $detector{"identifiers"} = "id manual $nflux";
+        #$detector{"identifiers"} = "id manual $nflux";
         print_det(\%configuration, \%detector);
         }
     }
@@ -3839,6 +3851,7 @@ print "#########################################","\n";
     {
          for(my $ir=0; $ir<($nrow); $ir++)
         {
+            #print "AAA",$im," ",$ib," ",$ir,"\n";
             my $rot=$fg*180.*((int(($ib+1.)/2.)-int(($ib)/2.))-(int(($ir+1.)/2.)-int(($ir)/2.)))+180.;#RUN1=+0; #RUN2=+180.
             # Carbon/Aluminum alveols
             my %detector = init_det();
@@ -3866,10 +3879,11 @@ print "#########################################","\n";
             my $par5 =$al_ar_wr_cr_lgt ;
             $detector{"dimensions"}  = "$par1*cm $par2*cm $par3*cm $par4*cm $par5*cm";
             $detector{"material"}    = "G4_Al";
-             print_det(\%configuration, \%detector);
+            print_det(\%configuration, \%detector);
             #print  " cryst",$Z," ","\n";
             
-            
+            #print $detector{"name"},"\n";
+            #print $detector{"pos"},"\n";
             
             # Air layer
             %detector = init_det();
@@ -4566,11 +4580,11 @@ sub make_mutest_detector
         print_det(\%configuration, \%detector);
    
 
-    my $Z = $vs_lg/2-$vs_top_tk/2 ;
-    my $par2 = $vs_ir/2; #InRad
-    my $par3  =$vs_top_tk/2;#length
-    my $par4 = 0.;
-    my $par5 = 360.;
+    $Z = $vs_lg/2-$vs_top_tk/2 ;
+    $par2 = $vs_ir/2; #InRad
+    $par3  =$vs_top_tk/2;#length
+    $par4 = 0.;
+    $par5 = 360.;
 
     
     $detector{"name"}        = "mutest_vessel_top";
@@ -4585,7 +4599,7 @@ sub make_mutest_detector
     $detector{"dimensions"}  = "0*cm $par2*cm $par3*cm $par4*deg $par5*deg";
     $detector{"material"}    = "G4_Fe";
     print_det(\%configuration, \%detector);
-    my $Z = -($vs_lg/2-$vs_top_tk/2) ;
+    $Z = -($vs_lg/2-$vs_top_tk/2) ;
 
     $detector{"name"}        = "mutest_vessel_bottom";
     $detector{"mother"}      = "mutest_vessel_air";
@@ -4601,7 +4615,7 @@ sub make_mutest_detector
     print_det(\%configuration, \%detector);
     
     
-    my %detector = init_det();
+    %detector = init_det();
     # cystal
     $fg=0;
     $nblock=1;
@@ -4611,7 +4625,7 @@ sub make_mutest_detector
     
     
     my $rot=0;                # Carbon/Aluminum alveols
-    my %detector = init_det();
+    %detector = init_det();
     $detector{"name"}        = "cry_alveol";
     $detector{"mother"}      = "mutest_vessel_air";
     $detector{"description"} = "Carbon/Al container";
@@ -4619,16 +4633,16 @@ sub make_mutest_detector
     $detector{"style"}       = 0;
     $detector{"visible"}     = 1;
     $detector{"type"}        = "Trd";
-    my $X = 0;
-    my $Y = 0;
-    my $Z = 0;
+    $X = 0;
+    $Y = 0;
+    $Z = 0;
     $detector{"pos"}         = "$X*cm $Y*cm $Z*cm";
     $detector{"rotation"}    = "0*deg $rot*deg 90*deg";
-    my $par1 =$al_ar_wr_cr_ssx ;
-    my $par2 =$al_ar_wr_cr_lsx;
-    my $par3 =$al_ar_wr_cr_ssy  ;
-    my $par4 =$al_ar_wr_cr_lsy  ;
-    my $par5 =$al_ar_wr_cr_lgt ;
+    $par1 =$al_ar_wr_cr_ssx ;
+    $par2 =$al_ar_wr_cr_lsx;
+    $par3 =$al_ar_wr_cr_ssy  ;
+    $par4 =$al_ar_wr_cr_lsy  ;
+    $par5 =$al_ar_wr_cr_lgt ;
     $detector{"dimensions"}  = "$par1*cm $par2*cm $par3*cm $par4*cm $par5*cm";
     $detector{"material"}    = "G4_AIR";
     #print_det(\%configuration, \%detector);# decomment if you want external box
@@ -4723,9 +4737,9 @@ sub make_mutest_detector
     my $csi_pad_lx =10.4/2.;#short side (readout)
     my $csi_pad_ly = $hodo_sc_thk/2.; #Thikness
     my $csi_pad_lz =10.4/2 ;#long side (readout)
-    my $X = 0.;
-    my $Y = 0;
-    my $Z = 31.6/2+7.+$hodo_sc_thk/2.;
+    $X = 0.;
+    $Y = 0;
+    $Z = 31.6/2+7.+$hodo_sc_thk/2.;
     $detector{"pos"}         = "$X*cm $Y*cm $Z*cm";
     $detector{"rotation"}    = "90*deg 0*deg 0*deg";
     $detector{"dimensions"}  = "$csi_pad_lx*cm $csi_pad_ly*cm $csi_pad_lz*cm";
@@ -4734,7 +4748,7 @@ sub make_mutest_detector
     $detector{"hit_type"}    = "veto";
     $detector{"identifiers"} = "sector manual 0 veto manual 6 channel manual 1";
     print_det(\%configuration, \%detector);
-    my $Z = -(31.6/2+1.6+$hodo_sc_thk/2.);
+    $Z = -(31.6/2+1.6+$hodo_sc_thk/2.);
     $detector{"name"}        = "bdx-hodo-bot";# bottom
     $detector{"description"} = "bdx-hodo paddle on bottom";
     $detector{"pos"}         = "$X*cm $Y*cm $Z*cm";
@@ -4747,12 +4761,12 @@ sub make_mutest_detector
     $detector{"style"}       = 0;
     $detector{"visible"}     = 1;
     $detector{"type"}        = "Box";
-    my $csi_pad_lx =4.0*2/2.;#short side (readout)
-    my $csi_pad_ly = $hodo_sc_thk/2.; #Thikness
-    my $csi_pad_lz =31.6/2 ;#long side (readout)
-    my $X = 5.2-$hodo_sc_thk/2.;
-    my $Y = 0;
-    my $Z = 0.;
+    $csi_pad_lx =4.0*2/2.;#short side (readout)
+    $csi_pad_ly = $hodo_sc_thk/2.; #Thikness
+    $csi_pad_lz =31.6/2 ;#long side (readout)
+    $X = 5.2-$hodo_sc_thk/2.;
+    $Y = 0;
+    $Z = 0.;
     $detector{"pos"}         = "$X*cm $Y*cm $Z*cm";
     $detector{"rotation"}    = "0*deg 0*deg 90*deg";
     $detector{"dimensions"}  = "$csi_pad_lx*cm $csi_pad_ly*cm $csi_pad_lz*cm";
@@ -4761,7 +4775,7 @@ sub make_mutest_detector
     $detector{"hit_type"}    = "veto";
     $detector{"identifiers"} = "sector manual 0 veto manual 6 channel manual 3";
     print_det(\%configuration, \%detector);
-    my $X = -(5.2-$hodo_sc_thk/2.);
+    $X = -(5.2-$hodo_sc_thk/2.);
     $detector{"name"}        = "bdx-hodo-right";# Side R
     $detector{"description"} = "bdx-hodo paddle on right side";
     $detector{"pos"}         = "$X*cm $Y*cm $Z*cm";
@@ -4774,12 +4788,12 @@ sub make_mutest_detector
     $detector{"style"}       = 0;
     $detector{"visible"}     = 1;
     $detector{"type"}        = "Box";
-    my $csi_pad_lx =8.0/2.;#short side (readout)
-    my $csi_pad_ly = $hodo_sc_thk/2.; #Thikness
-    my $csi_pad_lz =20.0/2 ;#long side (readout)
-    my $X = $csi_pad_lx-0.8;
-    my $Y = 5.2+$hodo_sc_thk/2.;
-    my $Z = 0;
+    $csi_pad_lx =8.0/2.;#short side (readout)
+    $csi_pad_ly = $hodo_sc_thk/2.; #Thikness
+    $csi_pad_lz =20.0/2 ;#long side (readout)
+    $X = $csi_pad_lx-0.8;
+    $Y = 5.2+$hodo_sc_thk/2.;
+    $Z = 0;
     $detector{"pos"}         = "$X*cm $Y*cm $Z*cm";
     $detector{"rotation"}    = "0*deg 0*deg 0*deg";
     $detector{"dimensions"}  = "$csi_pad_lx*cm $csi_pad_ly*cm $csi_pad_lz*cm";
@@ -4790,9 +4804,9 @@ sub make_mutest_detector
     print_det(\%configuration, \%detector);
     $detector{"name"}        = "bdx-hodo-front-fbl";# front-back-large (fbl)
     $detector{"description"} = "bdx-hodo paddle on front back large";
-    my $X = -($csi_pad_lx-0.8);
-    my $Y = 5.2-$hodo_sc_thk/2.;
-    my $Z = 0;
+    $X = -($csi_pad_lx-0.8);
+    $Y = 5.2-$hodo_sc_thk/2.;
+    $Z = 0;
     $detector{"pos"}         = "$X*cm $Y*cm $Z*cm";
     $detector{"identifiers"} = "sector manual 0 veto manual 6 channel manual 6";
     print_det(\%configuration, \%detector);
@@ -4803,12 +4817,12 @@ sub make_mutest_detector
     $detector{"style"}       = 0;
     $detector{"visible"}     = 1;
     $detector{"type"}        = "Box";
-    my $csi_pad_lx =2.5/2.;#short side (readout)
-    my $csi_pad_ly = $hodo_sc_thk/2.; #Thikness
-    my $csi_pad_lz =20.0/2 ;#long side (readout)
-    my $X = -($csi_pad_lx+1.);
-    my $Y = 5.2+$hodo_sc_thk/2.;
-    my $Z = 0;
+    $csi_pad_lx =2.5/2.;#short side (readout)
+    $csi_pad_ly = $hodo_sc_thk/2.; #Thikness
+    $csi_pad_lz =20.0/2 ;#long side (readout)
+    $X = -($csi_pad_lx+1.);
+    $Y = 5.2+$hodo_sc_thk/2.;
+    $Z = 0;
     $detector{"pos"}         = "$X*cm $Y*cm $Z*cm";
     $detector{"rotation"}    = "0*deg 0*deg 0*deg";
     $detector{"dimensions"}  = "$csi_pad_lx*cm $csi_pad_ly*cm $csi_pad_lz*cm";
@@ -4819,9 +4833,9 @@ sub make_mutest_detector
     print_det(\%configuration, \%detector);
     $detector{"name"}        = "bdx-hodo-front-fbs";# front-back-small (fbs)
     $detector{"description"} = "bdx-hodo paddle on front back small";
-    my $X =($csi_pad_lx+1.);
-    my $Y = 5.2-$hodo_sc_thk/2.;
-    my $Z = 0;
+    $X =($csi_pad_lx+1.);
+    $Y = 5.2-$hodo_sc_thk/2.;
+    $Z = 0;
     $detector{"pos"}         = "$X*cm $Y*cm $Z*cm";
     $detector{"identifiers"} = "sector manual 0 veto manual 6 channel manual 8";
     print_det(\%configuration, \%detector);
@@ -4832,12 +4846,12 @@ sub make_mutest_detector
     $detector{"style"}       = 0;
     $detector{"visible"}     = 1;
     $detector{"type"}        = "Box";
-    my $csi_pad_lx =14.4/2;#short side (readout)
-    my $csi_pad_ly = $hodo_sc_thk/2.; #Thikness
-    my $csi_pad_lz =20.0/2 ;#long side (readout)
-    my $X = 0.;
-    my $Y = -(4.0+$hodo_sc_thk/2.);
-    my $Z = 0;
+    $csi_pad_lx =14.4/2;#short side (readout)
+    $csi_pad_ly = $hodo_sc_thk/2.; #Thikness
+    $csi_pad_lz =20.0/2 ;#long side (readout)
+    $X = 0.;
+    $Y = -(4.0+$hodo_sc_thk/2.);
+    $Z = 0;
     $detector{"pos"}         = "$X*cm $Y*cm $Z*cm";
     $detector{"rotation"}    = "0*deg 0*deg 0*deg";
     $detector{"dimensions"}  = "$csi_pad_lx*cm $csi_pad_ly*cm $csi_pad_lz*cm";
@@ -4853,12 +4867,12 @@ sub make_mutest_detector
     $detector{"style"}       = 0;
     $detector{"visible"}     = 1;
     $detector{"type"}        = "Box";
-    my $csi_pad_lx =5.0/2.;#short side (readout)
-    my $csi_pad_ly = $hodo_sc_thk/2.; #Thikness
-    my $csi_pad_lz =12.0/2 ;#long side (readout)
-    my $X = 0.;
-    my $Y = -(4.0+1.5*$hodo_sc_thk);
-    my $Z = -($csi_pad_lx-0.8);
+    $csi_pad_lx =5.0/2.;#short side (readout)
+    $csi_pad_ly = $hodo_sc_thk/2.; #Thikness
+    $csi_pad_lz =12.0/2 ;#long side (readout)
+    $X = 0.;
+    $Y = -(4.0+1.5*$hodo_sc_thk);
+    $Z = -($csi_pad_lx-0.8);
     $detector{"pos"}         = "$X*cm $Y*cm $Z*cm";
     $detector{"rotation"}    = "0*deg 90*deg 0*deg";
     $detector{"dimensions"}  = "$csi_pad_lx*cm $csi_pad_ly*cm $csi_pad_lz*cm";
@@ -4869,9 +4883,9 @@ sub make_mutest_detector
     print_det(\%configuration, \%detector);
     $detector{"name"}        = "bdx-hodo-back-bbl";#  back-back-large bbl)
     $detector{"description"} = "bdx-hodo paddle on back back large";
-    my $X = 0;
-    my $Y = -(4.0+2.5*$hodo_sc_thk);
-    my $Z = ($csi_pad_lx-0.8);
+    $X = 0;
+    $Y = -(4.0+2.5*$hodo_sc_thk);
+    $Z = ($csi_pad_lx-0.8);
     $detector{"pos"}         = "$X*cm $Y*cm $Z*cm";
     $detector{"identifiers"} = "sector manual 0 veto manual 6 channel manual 11";
     print_det(\%configuration, \%detector);
@@ -4882,21 +4896,21 @@ sub make_mutest_detector
     $detector{"style"}       = 1;
     $detector{"visible"}     = 1;
     $detector{"type"}        = "Box";
-    my $csi_pad_lx =2.5/2.;#short side (readout)
-    my $csi_pad_ly = $hodo_sc_thk/2.; #Thikness
-    my $csi_pad_lz =12.0/2 ;#long side (readout)
-    my $X = 0.;
-    my $Y = -(4.0+1.5*$hodo_sc_thk);
-    my $Z = ($csi_pad_lx+1.0);
+    $csi_pad_lx =2.5/2.;#short side (readout)
+    $csi_pad_ly = $hodo_sc_thk/2.; #Thikness
+    $csi_pad_lz =12.0/2 ;#long side (readout)
+    $X = 0.;
+    $Y = -(4.0+1.5*$hodo_sc_thk);
+    $Z = ($csi_pad_lx+1.0);
     $detector{"pos"}         = "$X*cm $Y*cm $Z*cm";
     $detector{"dimensions"}  = "$csi_pad_lx*cm $csi_pad_ly*cm $csi_pad_lz*cm";
     $detector{"identifiers"} = "sector manual 0 veto manual 6 channel manual 12";
     print_det(\%configuration, \%detector);
     $detector{"name"}        = "bdx-hodo-front-bbs";# back-back-small (bbs)
     $detector{"description"} = "bdx-hodo paddle on back back small";
-    my $X = 0.;
-    my $Y = -(4.0+2.5*$hodo_sc_thk);
-    my $Z = -($csi_pad_lx+1.0);
+    $X = 0.;
+    $Y = -(4.0+2.5*$hodo_sc_thk);
+    $Z = -($csi_pad_lx+1.0);
     $detector{"pos"}         = "$X*cm $Y*cm $Z*cm";
     $detector{"identifiers"} = "sector manual 0 veto manual 6 channel manual 13";
     print_det(\%configuration, \%detector);
@@ -4922,11 +4936,11 @@ sub make_hallA_bdx
     make_bunker_tunnel();
     make_bunker();
     make_bunker_end();
-    make_hallaBD();
-    make_hallaBD_flux_barrel();
-    make_hallaBD_flux_endcup();
-    make_hallaBD_flux();
-    make_hallaBD_flux_sample();
+      make_hallaBD();
+      #make_hallaBD_flux_barrel();
+      #make_hallaBD_flux_endcup();
+      #make_hallaBD_flux();
+      #make_hallaBD_flux_sample();
     make_muon_absorber();
     make_det_house_outer();
     make_det_house_inner();
@@ -5005,7 +5019,7 @@ sub make_bdx_CT
     make_cormo_lead();
     # make_csi_pad();
     # make_flux_cosmic_cyl;
-     make_flux_cosmic_rec;
+    # make_flux_cosmic_rec;
        #make_cormo_shield();
        #  make_babar_crystal();
        #make_cry_module_up();
@@ -5084,7 +5098,7 @@ sub make_detector_bdx
          make_lead
          make_oveto
          # make_flux_cosmic_cyl;
-         make_flux_cosmic_rec;
+         # make_flux_cosmic_rec;
          
          #  make_cry_module_II();
         }

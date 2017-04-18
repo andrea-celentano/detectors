@@ -33,6 +33,8 @@ if( scalar @ARGV != 1)
 # Loading configuration file and paramters
 our %configuration = load_configuration($ARGV[0]);
 
+print "CONFIGURATION IS ::: ",$configuration{"variation"},"\n";
+
 # One can change the "variation" here if one is desired different from the config.dat
 # $configuration{"variation"} = "myvar";
 
@@ -46,26 +48,23 @@ require "./geometry.pl";
 require "./materials.pl";
 
 define_banks();
-my @AllConfs=("CT","Proposal");
-foreach my $conf(@AllConfs)
-{
-    
-    $configuration{"variation"} = $conf;
-    define_bdx_hits();
-    define_bdx_materials();
+define_bdx_hits();
+define_bdx_materials();
     if ($configuration{"variation"} eq "CT")
-     {
+{
+	 print "variation CT\n";
          make_bdx_CT();
    
-     }
+}
     else
      {
+	 print "variation Proposal\n";
          make_hallA_bdx();
          make_detector_bdx();
          
      }
     
-    }
+    
 
 
 
