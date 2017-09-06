@@ -4,7 +4,7 @@
 <option name="HIT_PROCESS_LIST" value="BDX"/>
 
 <!--<option name="PHYSICS"   value="FTFP_BERT_HP + STD + HP" />-->
-<option name="PHYSICS"   value="FTFP_BERT_HP + STD + HP" />
+<option name="PHYSICS"   value="STD + HP" />
 
 	
 <detector name="bdx" factory="TEXT" variation="Proposal"/>
@@ -14,10 +14,10 @@
 	
     <!--	<option name="SIGNALVT" value="ft_cal ft_hodo ft_trk"/>-->
 <option name="INTEGRATEDRAW" value="cormo flux veto crs"/>
-    <!--<option name="BEAM_P"   value="mu+, 10*GeV, 90*deg, -90*deg"/>-->
+<option name="BEAM_P"   value="mu+, 10*GeV, 0*deg, -90*deg"/>
     <!--<option name="BEAM_P"   value="proton, 194.73*MeV, 0*deg, 0*deg"/>-->
     <!--<option name="BEAM_P"   value="mu+, 5.*GeV, 0*deg, 0*deg"/>-->
-<option name="BEAM_P"   value="e-, 1.*GeV, 0*deg, 0*deg"/>
+    <!--<option name="BEAM_P"   value="e-, 1.*GeV, 0*deg, 0*deg"/>-->
     <!--<option name="SPREAD_P" value="0*GeV, 4*deg, 360*deg"/>-->
 <option name="BEAM_V" value="(0.,0.,1810.)cm"/>
     <!--<option name="BEAM_V" value="(0,780.,1800. )cm"/>-->
@@ -37,9 +37,11 @@
 <option name="RECORD_PASSBY" value="1" />
 
 
-    <!--<option name="COSMICRAYS"   value="default,10.9,100.9,neutron,default"/>-->
+<option name="COSMICRAYS"   value="default,0.2,2,muon,default"/>
+<!--<option name="COSMICRAYS"   value="default,2,10,muon,default"/>-->
     <!--<option name="COSMICRAYS"   value="default,0.445,1.697,neutron,default"/>-->
-    <!--<option name="COSMICAREA"   value="0*cm, 0*cm, 1822*cm, 0.25*m,cyl"/>-->
-    <!--<option name="INPUT_GEN_FILE" value="LUND, electronCorr101.lund"/>-->
+    <!--<option name="COSMICAREA"   value="0*cm, 0*cm, 1822*cm, 1.8*m,sph"/>-->
+<option name="COSMICAREA"   value="0*cm, 0*cm, 1822*cm, 0.5*m,sph"/>
+   <!--<option name="INPUT_GEN_FILE" value="LUND,electronCorr121.lund"/>-->
 
 </gcard>
