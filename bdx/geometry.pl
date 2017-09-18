@@ -1295,7 +1295,7 @@ sub make_bdx_main_volume
         my $Z = 0.;
         $detector{"pos"}         = "$X*cm $Y*cm $Z*cm";
         $detector{"rotation"}    = "0*deg 0*deg 0*deg";
-            my $wallthk=210; # now it's 15cm or 470cm
+            my $wallthk=280; # now it's 15cm or 470cm
             
         my $par1 = 600.+$wallthk;
         my $par2 = 400.+$wallthk;
@@ -4953,7 +4953,7 @@ sub make_mutest_detector
     my $csi_pad_lz =11.0/2 ;#long side (readout)
     $X = 0.;
     $Y = 0;
-    $Z = 31.6/2+4.6+$hodo_sc_thk/2.;
+    $Z = 31.6/2+2.6+$hodo_sc_thk/2.;
     $detector{"pos"}         = "$X*cm $Y*cm $Z*cm";
     $detector{"rotation"}    = "90*deg 0*deg 0*deg";
     $detector{"dimensions"}  = "$csi_pad_lx*cm $csi_pad_ly*cm $csi_pad_lz*cm";
@@ -5261,7 +5261,7 @@ sub make_bdx_CT
     {print "Here we are ",$flag_mutest,"\n";
         make_bdx_main_volume();
          make_mutest_detector();
-        make_flux_cosmic_sph();
+        #make_flux_cosmic_sph();
         
     }
 
