@@ -3,8 +3,8 @@
 <option name="DATABASE" value="clas12_simulation"/>
 <option name="HIT_PROCESS_LIST" value="BDX"/>
 
-    <!--<option name="PHYSICS"   value="FTFP_BERT_HP + STD + HP" />-->
-<option name="PHYSICS"   value="STD + HP" />
+<!--<option name="PHYSICS"   value="FTFP_BERT_HP + STD + HP" />-->
+    <option name="PHYSICS"   value="STD + HP" />
 
 <detector name="bdx" factory="TEXT" variation="CT"/>
 <option name="geometry" value="900x600"/>
@@ -37,9 +37,11 @@
     <!--<option name="ENERGY_CUT"   value="100.*eV" />-->
 <option name="RECORD_PASSBY" value="1" />
 
+<!--<option name="COSMICRAYS"   value="default,0.1375,0.445,neutron,default"/>-->
 <!--<option name="COSMICRAYS"   value="default,0.445,1.697,neutron,default"/>-->
-<option name="COSMICRAYS"   value="default,10,100,muon,default"/>
-<option name="COSMICAREA"   value="0*cm, -25*cm, 0*cm, 0.5*m,sph"/>
+<option name="COSMICRAYS"   value="default,1.697,10.9,neutron,default"/>
+<!--<option name="COSMICRAYS"   value="default,10,100,muon,default"/>-->
+<option name="COSMICAREA"   value="0*cm, -10*cm, 0*cm, 0.5*m,sph"/>
 <!--<option name="SAVE_ALL_MOTHERS" value="1"/>-->
 
 </gcard> 
