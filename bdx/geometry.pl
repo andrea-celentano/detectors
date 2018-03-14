@@ -1295,7 +1295,7 @@ sub make_bdx_main_volume
         my $Z = 0.;
         $detector{"pos"}         = "$X*cm $Y*cm $Z*cm";
         $detector{"rotation"}    = "0*deg 0*deg 0*deg";
-            my $wallthk=280; # now it's 15cm or 470cm
+            my $wallthk=1; # now it's 15cm or 470cm
             
         my $par1 = 600.+$wallthk;
         my $par2 = 400.+$wallthk;
@@ -2137,10 +2137,19 @@ sub make_hallaBD_flux_sample
 
 my $mutest_pipe_x = 0.;
 my $mutest_pipe_y = 0.;
-my $mutest_pipe_z = 960.;
+#my $mutest_pipe_z = 960.;
 my $mutest_pipe_InRad = 24./2;
 my $mutest_pipe_thick = 1./2;
 my $mutest_pipe_length = 1500./2;
+
+
+
+## WELL1 - NOMINAL##
+my $mutest_pipe_z = 2257.1;
+
+## WELL2 - NOMINAL##
+my $mutest_pipe_z2 = 2561.9;
+
 
 
 sub make_mutest_pipe
@@ -2148,7 +2157,7 @@ sub make_mutest_pipe
     my %detector = init_det();
      my $X = 0. ;
      my $Y = 0. ;
-     my $Z = $Bunker_zmax+$mutest_pipe_z;
+     my $Z = $mutest_pipe_z;
     #my $Z = 0.;# to center the pipe
     
     my $par1 = $mutest_pipe_InRad;
@@ -2184,6 +2193,50 @@ sub make_mutest_pipe
     print_det(\%configuration, \%detector);
     
 }
+
+sub make_mutest_pipe2
+{
+    my %detector = init_det();
+    my $X = 0. ;
+    my $Y = 0. ;
+    my $Z = $mutest_pipe_z2;
+    #my $Z = 0.;# to center the pipe
+    
+    my $par1 = $mutest_pipe_InRad;
+    my $par2 = $mutest_pipe_InRad+$mutest_pipe_thick;
+    my $par3  =$mutest_pipe_length;
+    my $par4 = 0.;
+    my $par5 = 360.;
+    
+    $detector{"name"}        = "mutest_pipe2";
+    $detector{"mother"}      = "dirt";
+    $detector{"description"} = "pipe 2 to host muon flux detector";
+    $detector{"color"}       = "A05070";
+    $detector{"style"}       = 0;
+    $detector{"visible"}     = 1;
+    $detector{"type"}        = "Tube";
+    $detector{"pos"}         = "$X*cm $Y*cm $Z*cm";
+    $detector{"rotation"}    = "90*deg 0*deg 0*deg";
+    $detector{"dimensions"}  = "0*cm $par2*cm $par3*cm $par4*deg $par5*deg";
+    $detector{"material"}    = "G4_Al";
+    print_det(\%configuration, \%detector);
+    
+    $detector{"name"}        = "mutest_pipe_air2";
+    $detector{"mother"}      = "mutest_pipe2";
+    $detector{"description"} = "air in pipe 2";
+    $detector{"color"}       = "A05070";
+    $detector{"style"}       = 0;
+    $detector{"visible"}     = 1;
+    $detector{"type"}        = "Tube";
+    $detector{"pos"}         = "0*cm 0*cm 0*cm";
+    $detector{"rotation"}    = "0*deg 0*deg 0*deg";
+    $detector{"dimensions"}  = "0*cm $par1*cm $par3*cm $par4*deg $par5*deg";
+    $detector{"material"}    = "G4_AIR";
+    print_det(\%configuration, \%detector);
+    
+}
+
+
 sub make_mutest_flux
 {
     my %detector = init_det();
@@ -4743,7 +4796,7 @@ sub make_mutest_detector
     if ($configuration{"variation"} eq "CT")
     {
         $detector{"mother"}      = "bdx_main_volume";
-        $rotX=90.;
+        $rotX=90.; #0 for H 90deg for V
     }
     else
     {$detector{"mother"}      = "mutest_pipe_air";}
@@ -4945,7 +4998,7 @@ sub make_mutest_detector
     $detector{"mother"}      = "mutest_vessel_air";
     $detector{"description"} = "bdx-hodo paddle on top";
     $detector{"color"}       = "ff8000";
-    $detector{"style"}       = 0;
+    $detector{"style"}       = 1;
     $detector{"visible"}     = 1;
     $detector{"type"}        = "Box";
     my $csi_pad_lx =11.0/2.;#short side (readout)
@@ -4953,7 +5006,7 @@ sub make_mutest_detector
     my $csi_pad_lz =11.0/2 ;#long side (readout)
     $X = 0.;
     $Y = 0;
-    $Z = 31.6/2+2.6+$hodo_sc_thk/2.;
+    $Z = 31.6/2+2.9+$hodo_sc_thk/2.;
     $detector{"pos"}         = "$X*cm $Y*cm $Z*cm";
     $detector{"rotation"}    = "90*deg 0*deg 0*deg";
     $detector{"dimensions"}  = "$csi_pad_lx*cm $csi_pad_ly*cm $csi_pad_lz*cm";
@@ -4962,7 +5015,7 @@ sub make_mutest_detector
     $detector{"hit_type"}    = "veto";
     $detector{"identifiers"} = "sector manual 0 veto manual 6 channel manual 13";
     print_det(\%configuration, \%detector);
-    $Z = -(31.6/2+1.2+$hodo_sc_thk/2.);
+    $Z = -(31.6/2+1.5+$hodo_sc_thk/2.);
     $detector{"name"}        = "bdx-hodo-bot";# bottom
     $detector{"description"} = "bdx-hodo paddle on bottom";
     $detector{"pos"}         = "$X*cm $Y*cm $Z*cm";
@@ -4973,7 +5026,7 @@ sub make_mutest_detector
     $detector{"name"}        = "bdx-hodo-left";# sideL
     $detector{"description"} = "bdx-hodo paddle on left side";
     $detector{"color"}       = "ff8000";
-    $detector{"style"}       = 0;
+    $detector{"style"}       = 1;
     $detector{"visible"}     = 1;
     $detector{"type"}        = "Box";
     $csi_pad_lx =7.6/2.;#short side (readout)
@@ -5084,7 +5137,7 @@ sub make_mutest_detector
     $detector{"name"}        = "bdx-hodo-back-bfl";# back-front-large (bfl)
     $detector{"description"} = "bdx-hodo paddle on back front large";
     $detector{"color"}       = "ff8000";
-    $detector{"style"}       = 0;
+    $detector{"style"}       = 1;
     $detector{"visible"}     = 1;
     $detector{"type"}        = "Box";
     $csi_pad_lx =5.0/2.;#short side (readout)
@@ -5113,7 +5166,7 @@ sub make_mutest_detector
     $detector{"name"}        = "bdx-hodo-front-bfs";# back-front-small (bfs)
     $detector{"description"} = "bdx-hodo paddle on back front small";
     $detector{"color"}       = "ff8000";
-    $detector{"style"}       = 1;
+    $detector{"style"}       = 0;
     $detector{"visible"}     = 1;
     $detector{"type"}        = "Box";
     $csi_pad_lx =2.5/2.;#short side (readout)
@@ -5344,6 +5397,7 @@ sub make_detector_bdx
         if($flag_mutest == 1)
         {
             make_mutest_pipe();
+            make_mutest_pipe2();
             #make_mutest_flux();
             make_mutest_detector();
             #make_flux_cosmic_cyl;
