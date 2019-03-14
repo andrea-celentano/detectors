@@ -57,7 +57,15 @@ sub define_bdx_bank
 	insert_bank_variable(\%configuration, $bankname, "tdc2",         9, "Di", "tdc2");
     insert_bank_variable(\%configuration, $bankname, "tdc3",        10, "Di", "tdc3");
     insert_bank_variable(\%configuration, $bankname, "tdc4",        11, "Di", "tdc4");
-	insert_bank_variable(\%configuration, $bankname, "hitn",        99, "Di", "hit number");
+    insert_bank_variable(\%configuration, $bankname, "adc5",        12, "Di", "adc5");
+    insert_bank_variable(\%configuration, $bankname, "adc6",        13, "Di", "adc6");
+    insert_bank_variable(\%configuration, $bankname, "adc7",        14, "Di", "adc7");
+    insert_bank_variable(\%configuration, $bankname, "adc8",        15, "Di", "adc8");
+    insert_bank_variable(\%configuration, $bankname, "tdc5",        16, "Di", "tdc5");
+    insert_bank_variable(\%configuration, $bankname, "tdc6",        17, "Di", "tdc6");
+    insert_bank_variable(\%configuration, $bankname, "tdc7",        18, "Di", "tdc7");
+    insert_bank_variable(\%configuration, $bankname, "tdc8",        19, "Di", "tdc8");
+    insert_bank_variable(\%configuration, $bankname, "hitn",        99, "Di", "hit number");
 
     $bankId   = 300;
     $bankname = "crs";
