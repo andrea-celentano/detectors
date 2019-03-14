@@ -61,13 +61,61 @@ sub define_bdx_materials
     print_mat(\%configuration, \%mat);
     
 
+    # BDX_Pb_shots cponsidering rho=11.35/2=5.675 gr/cm3
+    %mat = init_mat();
+    $mat{"name"}          = "BDX_Pb_shots";
+    $mat{"description"}   = "Small shots of lead";
+    $mat{"density"}       = "5.675";
+    $mat{"ncomponents"}   = "1";
+    $mat{"components"}    = "G4_Pb 1.";
+    print_mat(\%configuration, \%mat);
+    # BDX_W_shots cponsidering  density -> 19.3/2=9.65 gr/cm3
+    %mat = init_mat();
+    $mat{"name"}          = "BDX_W_shots";
+    $mat{"description"}   = "Small shots of tungstane";
+    $mat{"density"}       = "9.65";
+    $mat{"ncomponents"}   = "1";
+    $mat{"components"}    = "G4_W 1.";
+    print_mat(\%configuration, \%mat);
+    
     # BDX_Dirt from A.s. Hoover et Al IEEE Symposium 2009
     %mat = init_mat();
     $mat{"name"}          = "BDX_Dirt";
     $mat{"description"}   = "Dirt";
-    $mat{"density"}       = "1.7";
+    $mat{"density"}       = "1.9";
     $mat{"ncomponents"}   = "8";
     $mat{"components"}    = "G4_H 0.021 G4_C 0.016 G4_O 0.577 G4_Al 0.05 G4_Si 0.271 G4_K 0.013 G4_Ca 0.041 G4_Fe 0.011";
+    print_mat(\%configuration, \%mat);
+   
+    # BDX_Dirt -CLAY- from L.Martin N.Mercier S.Incerti Geant4 simulations for sedimentary grains in infinite matrix conditions: The case of alpha dosimetry, Radiation Measurements 70 (2014) 39e47  55% in mass of SiO2, 35% of Al2O3 and 10% of Fe2O3.
+    %mat = init_mat();
+    $mat{"name"}          = "BDX_SiO2";
+    $mat{"description"}   = "Silicon Dioxide";
+    $mat{"density"}       = "2.65";
+    $mat{"ncomponents"}   = "2";
+    $mat{"components"}    = "O 2 Si 1";
+    print_mat(\%configuration, \%mat);
+    $mat{"name"}          = "BDX_Al2O3";
+    $mat{"description"}   = "Al oxide";
+    $mat{"density"}       = "3.95";
+    $mat{"ncomponents"}   = "2";
+    $mat{"components"}    = "Al 2 O 3";
+    print_mat(\%configuration, \%mat);
+    $mat{"name"}          = "BDX_Fe2O3";
+    $mat{"description"}   = "Fe oxide";
+    $mat{"density"}       = "5.24";
+    $mat{"ncomponents"}   = "2";
+    $mat{"components"}    = "Fe 2 O 3";
+    print_mat(\%configuration, \%mat);
+
+    
+    
+    %mat = init_mat();
+    $mat{"name"}          = "BDX_Dirt_real";
+    $mat{"description"}   = "Dirt";
+    $mat{"density"}       = "1.9";
+    $mat{"ncomponents"}   = "3";
+    $mat{"components"}    = "BDX_SiO2 0.55 BDX_Al2O3 0.35 BDX_Fe2O3 0.1";
     print_mat(\%configuration, \%mat);
     
     
